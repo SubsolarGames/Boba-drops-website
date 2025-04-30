@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Godot Topdown Shooter Template</title>
+</head>
+<body>
+    <h1>Godot Topdown Shooter Template</h1>
+
+    <video autoplay loop muted width="800" height="400" name="Showcase">
+        <source src="topdownshooter.mov">
+    </video>
+        
+    <h2>What is it?</h2>
+    <p>
+        This template is a fully functional base project for a topdown pixel art shooter in Godot. It can be used as boilerplate for future projects.
+        A lot of my games are topdown shooters; these games all share very comman characteristics that are tedious to remake every time.
+        <br>
+        <br>
+        <h3>Some of my previous projects</h3>
+        <video autoplay loop muted width="600" height="600" name="Slimeslinger">
+            <source src="slimeslinger.mp4">
+        </video>
+        <p><i>Slimeslinger</i></p>
+
+        <video autoplay loop muted width="600" height="600" name="Descent">
+            <source src="descent.mov">
+        </video>
+        <p><i>Descent</i></p>
+    </p>
+ 
+    <h2>Features</h2>
+    <p>
+        <h3>Player Character</h3>
+        <p>
+            Player character can move around, dash, take damage, and die
+        </p>
+        <video autoplay loop muted width="800" height="400" name="Showcase">
+            <source src="player movement.mov">
+        </video>
+
+        <h3>Shooting</h3>
+        <p>
+            Fully customizable guns that can be attached to the enemy or player. Guns have different stats such as bullet_speed, bullet_spread, or knockback
+        </p>
+        <video autoplay loop muted width="800" height="400" name="Showcase">
+            <source src="shooting.mov">
+        </video>
+
+        <h3>Enemies</h3>
+        <p>
+            Customizable enemies which have the ability to shoot, dash, and move to the player. They use a star pathfinding to move to the player in an intelligent way. They also can avoid obstacles such as explosives and each other.
+        </p>
+        <video autoplay loop muted width="800" height="400" name="Showcase">
+            <source src="enemies.mov">
+        </video>
+
+        <h3>Collectables</h3>
+        <p>
+            Different items such as coins and health pickups are fully function. Chests and guns can be interacted with and picked up. Enemies can also drop random loot.
+        </p>
+        <video autoplay loop muted width="800" height="400" name="Showcase">
+            <source src="collecting.mov">
+        </video>
+
+        <h3>Impact</h3>
+        <p>
+            Screenshake and hitstop are implemnted in a Global script which can be called anywhere. There is an Audio manager which is a Global script that can play different sounds using spacial audio.
+        </p>
+        <video autoplay loop muted width="800" height="400" name="Showcase">
+            <source src="feedback.mov">
+        </video>
+
+        <h3>Menus</h3>
+        <p>
+            Main menu, and settings menu are implemnted with buttons and sliders. Settings include: sfx, music, and screenshake sliders.
+        </p>
+        <video autoplay loop muted width="800" height="400" name="Showcase">
+            <source src="menus.mov">
+        </video>
+    </p>
+
+
+    <h2>Code Structure</h2>
+
+    <p>
+        My project uses a combination of inheritence and composision.
+    </p>
+
+    <h3>Composision</h3>
+    <p>
+        Almost everything in the project is composed of smaller pieces. For example the player character is composed of these different nodes:
+        <ul>
+            <li>Healthbox</li>
+                <i>this component handles taking damage and killing the parent object</i>
+            <li>Moveable</li>
+                <i>this component is a character body and handles collision and velocity</i>
+            <li>Animated character</li>
+                <i>this component rotates the player based on velocity to add basic animations</i>
+            <li>Damagebox</li>
+                <i>this component deals damage to healthboxes</i>
+        </ul>
+        These components can be easily reused in another object, for example a rock.
+        <ul>
+            <li>Healthbox</li>
+            <li>Moveable</li>
+            <li>Lootable</li>
+                <i>this components randomly drops items from a list when the parent node dies</i>
+        </ul>
+
+    </p>
+
+    <h3>Inheritence</h3>
+    <p>
+        I also use inheritence in tandum with composision. For example the enemy parent node is build from different composite blocks. But then different enemies all inherite from the parent enemy.
+        Parent Enemy
+        <ul>
+            <li>Healthbox</li>
+            <li>Moveable</li>
+            <li>Animated Character</li>
+            <li>Damagebox</li>
+            <li>Navigation Agent</li>
+                <i>Move to a target point (the player) and also avoid obstacles</i>
+        </ul>
+        An inherited enemy (enemy shooter)
+        <ul>
+            <li>All of parent features</li>
+            <li>Gun</li>
+                <i>Can shoot at a target point</i>
+            <li>shoot range</li>
+                <i>activates gun in a certain range</i>
+        </ul>
+    </p>
+</body>
+</html>

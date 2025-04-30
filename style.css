@@ -1,0 +1,36 @@
+body {
+    background-color: #181425;
+    color: #ffffff;
+    text-shadow: 0 0 20px #8b9bb4, 0 0 30px #8b9bb4, 0 0 40px #8b9bb4;
+    font-family: monospace;
+    text-align: center;
+    font-size: 18px;
+}
+
+h1 {
+    font-size: 48px;
+    background-color: #5a6988;
+}
+
+h2 {
+    font-size: 38px;
+    background-color: #3a4466;
+}
+
+h3 {
+    font-size: 28px;
+    background-color: #262b44;
+}
+
+video {
+    border-radius: 15px;
+    border: 5px solid #0099db;
+}
+
+ul {
+    text-align: left;
+}
+
+i {
+    color: #c0cbdc
+}
